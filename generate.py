@@ -5,7 +5,7 @@ import torch.nn.functional as F
 from transformers import AutoTokenizer, AutoModel
 
 
-def add_gumbel_noise(logits, temperature):
+def add_gumbel_noise(logits, temperature = 0.):
     '''
     The Gumbel max is a method for sampling categorical distributions.
     According to arXiv:2409.02908, for MDM, low-precision Gumbel Max improves perplexity score but reduces generation quality.
@@ -105,6 +105,7 @@ def generate(model, prompt, steps=128, gen_length=128, block_length=128, tempera
             x[transfer_index] = x0[transfer_index]
 
     return x
+
 
 
 def main():

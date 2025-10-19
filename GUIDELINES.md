@@ -21,7 +21,7 @@ The pre-training of LLaDA is straightforward and simple. Starting from an existi
 autoregressive model training code, only a few lines need to be modified. 
 We provide the core code (i.e., loss computation) here.
 
-```angular2html
+```python
 def forward_process(input_ids, eps=1e-3):
     b, l = input_ids.shape
     t = torch.rand(b, device=input_ids.device)
